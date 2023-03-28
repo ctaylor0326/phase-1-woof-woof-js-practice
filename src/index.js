@@ -2,7 +2,7 @@
 const dogBar = document.getElementById("dog-bar");
 let pups;
 const dogInfo = document.getElementById("dog-info");
-console.log(dogInfo);
+
 
 //DOM manipulators
 function createSpan(pup) {
@@ -30,13 +30,33 @@ function createSpan(pup) {
     dogInfo.append(button);
     
     button.addEventListener("click", (e) => {
-          if (pup.isGoodDog) {
-            pup.isGoodDog = false; 
+         if (pup.isGoodDog) {
+
+            pup.isGoodDog= false;
+            fetch(`http://localhost:3000/pups/${pup.id}`, {
+            method: "PATCH",
+            body: JSON.stringify({
+                isGoodDog: false
+            }),
+            headers: {
+                "Content-type": "application/json"
+            }}) 
             button.textContent = "Is Bad Dog!";
-          } else {
+        }else {
             pup.isGoodDog = true;
+            fetch(`http://localhost:3000/pups/${pup.id}`, {
+              method: "PATCH",
+              body: JSON.stringify({
+                isGoodDog: true
+              }),
+              headers: {
+                "Content-type": "application/json",
+              },
+            });
             button.textContent = "Is Good Dog!";
           }
+          
+          });
        
     //     if(button.textContent === "Is Good Dog!") {
     //     button.textContent = "Is Bad Dog!";
@@ -44,8 +64,8 @@ function createSpan(pup) {
     //     button.textContent = "Is Good Dog!"
     //    }
     });
-  });
-}
+  };
+
 
 //FETCH requests
 
