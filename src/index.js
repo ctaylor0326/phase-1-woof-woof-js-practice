@@ -30,11 +30,19 @@ function createSpan(pup) {
     dogInfo.append(button);
     
     button.addEventListener("click", (e) => {
-       if(button.textContent === "Is Good Dog!") {
-        button.textContent = "Is Bad Dog!";
-       } else {
-        button.textContent = "Is Good Dog!"
-       }
+          if (pup.isGoodDog) {
+            pup.isGoodDog = false; 
+            button.textContent = "Is Bad Dog!";
+          } else {
+            pup.isGoodDog = true;
+            button.textContent = "Is Good Dog!";
+          }
+       
+    //     if(button.textContent === "Is Good Dog!") {
+    //     button.textContent = "Is Bad Dog!";
+    //    } else {
+    //     button.textContent = "Is Good Dog!"
+    //    }
     });
   });
 }
