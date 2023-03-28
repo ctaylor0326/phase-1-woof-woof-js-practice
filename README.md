@@ -36,7 +36,7 @@ $ npm install -g json-server
 
 Then run the server:
 
-```console
+```console      
 $ json-server --watch db.json
 ```
 
@@ -52,7 +52,7 @@ On the page, there is a `div` with the id of `"dog-bar"`. When the page loads,
 use `fetch` to get all of the pup data from your server. When you have this
 information, you'll need to add a `span` with the pup's name to the dog bar (ex:
 `<span>Mr. Bonkers</span>`).
-
+ 
 ### STEP 3: SHOW MORE INFO ABOUT EACH PUP
 
 When a user clicks on a pup's `span` in the `div#dog-bar`, that pup's info
