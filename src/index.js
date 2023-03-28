@@ -16,6 +16,7 @@ function createSpan(pup) {
   s.addEventListener("click", (e) => {
     console.log("clicked");
     e.preventDefault();
+    dogInfo.innerHTML = ""
     const img = document.createElement("img");
         img.src = pup.image
     dogInfo.append(img)
