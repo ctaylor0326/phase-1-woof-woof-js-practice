@@ -10,7 +10,6 @@ function createSpan(pup) {
   s.textContent = pup.name;
   dogBar.appendChild(s);
   s.addEventListener("click", (e) => {
-    console.log("clicked");
     e.preventDefault();
     dogInfo.innerHTML = "";
     const img = document.createElement("img");
@@ -18,7 +17,7 @@ function createSpan(pup) {
     const name = document.createElement("h2");
     name.textContent = pup.name;
     const button = document.createElement("button");
-    console.log(button);
+    
     if (pup.isGoodDog) {
       button.textContent = "Is Good Dog!";
     } else {
@@ -29,6 +28,14 @@ function createSpan(pup) {
     dogInfo.append(img);
     dogInfo.append(name);
     dogInfo.append(button);
+    
+    button.addEventListener("click", (e) => {
+       if(button.textContent === "Is Good Dog!") {
+        button.textContent = "Is Bad Dog!";
+       } else {
+        button.textContent = "Is Good Dog!"
+       }
+    });
   });
 }
 
