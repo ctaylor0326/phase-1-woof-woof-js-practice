@@ -1,22 +1,31 @@
 
-//Initial Render
 
-function init(){
-    
-}
-//Variables
+
+//Variables and Functions
 const dogBar = document.getElementById("dog-bar");
+let pups
 
 
 //DOM manipulators
+function createSpan(pup) {
+  console.log(pup);
+  let s = document.createElement("span");
+  s.textContent = pup.name;
+  dogBar.appendChild(s);
+}
+
+
 
 
 //FETCH requests
 
-console.log("before fetch");
-// function getPups(){
 fetch("http://localhost:3000/pups")
-.then((res) => res.json())
-.then((data) => console.log(data))
+  .then((res) => res.json())
+  .then((pupsInfo) => {
     
-// }
+    pups = pupsInfo;
+    console.log(pups);
+    pups.forEach(createSpan);
+  });
+
+
